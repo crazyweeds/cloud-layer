@@ -48,7 +48,7 @@
     </pluginRepositories>
 
     <modules>
-        <module>layer-dependencies</module>
+        <module>cloud-layer-dependencies</module>
     </modules>
 
 
