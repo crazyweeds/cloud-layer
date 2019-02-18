@@ -47,5 +47,9 @@
         </pluginRepository>
     </pluginRepositories>
 
+    <modules>
+        <module>layer-dependencies</module>
+    </modules>
+
 
 </project>
