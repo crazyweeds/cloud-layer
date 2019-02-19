@@ -48,6 +48,9 @@
 
     <modules>
         <module>cloud-layer-dependencies</module>
+        <module>cloud-layer-starters</module>
+        <module>cloud-layer-common</module>
+        <module>cloud-layer-server</module>
     </modules>
 
 
