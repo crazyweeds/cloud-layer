@@ -19,6 +19,7 @@
         <module>doc-spring-boot-starter</module>
         <module>logger-spring-boot-starter</module>
         <module>security-spring-boot-starters</module>
+        <module>cache-spring-boot-starter</module>
     </modules>
 
 
