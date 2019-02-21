@@ -17,6 +17,7 @@
     <modules>
         <module>netty-spring-boot-starter</module>
         <module>doc-spring-boot-starter</module>
+        <module>logger-spring-boot-starter</module>
     </modules>
 
 

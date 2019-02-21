@@ -11,13 +11,14 @@
 
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
+    <artifactId>netty-spring-boot-starter</artifactId>
+    <description>netty相关的</description>
+
     <modules>
         <module>netty-core-spring-boot-starter</module>
         <module>netty-server-spring-boot-starter</module>
         <module>netty-mc-spring-boot-starter</module>
     </modules>
-    <artifactId>netty-spring-boot-starter</artifactId>
-    <description>netty相关的</description>
 
 
 </project>
