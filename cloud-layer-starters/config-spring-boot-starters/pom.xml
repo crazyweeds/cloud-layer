@@ -3,21 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>cloud-layer-dependencies</artifactId>
+        <artifactId>cloud-layer-starters</artifactId>
         <groupId>com.ossdisk</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../cloud-layer-dependencies</relativePath>
     </parent>
-
     <modelVersion>4.0.0</modelVersion>
-    <packaging>pom</packaging>
-    <artifactId>cloud-layer-starters</artifactId>
-    <description>自定义starters</description>
 
+    <artifactId>config-spring-boot-starters</artifactId>
+    <packaging>pom</packaging>
     <modules>
-        <module>base-spring-boot-starters</module>
-        <module>config-spring-boot-starters</module>
-        <module>core-spring-boot-starters</module>
+        <module>swagger-spring-boot-starter</module>
     </modules>
 
 

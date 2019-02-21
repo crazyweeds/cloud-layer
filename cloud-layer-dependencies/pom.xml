@@ -28,7 +28,7 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--spring start-->
+            <!--important start-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -43,6 +43,8 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!--important end-->
+            <!--spring start-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
