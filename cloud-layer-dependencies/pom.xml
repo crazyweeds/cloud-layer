@@ -25,11 +25,6 @@
         <jjwt.version>0.9.0</jjwt.version>
     </properties>
 
-    <modules>
-        <module>web-spring-boot-starter</module>
-        <module>web-spring-boot-starter</module>
-    </modules>
-
 
     <dependencyManagement>
         <dependencies>
