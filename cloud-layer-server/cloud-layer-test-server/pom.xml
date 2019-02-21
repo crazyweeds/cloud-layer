@@ -13,7 +13,11 @@
     <description>研究用项目</description>
 
     <dependencies>
-
+        <dependency>
+            <groupId>com.ossdisk</groupId>
+            <artifactId>web-spring-boot-starter</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 
