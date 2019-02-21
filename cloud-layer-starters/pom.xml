@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>cloud-layer-dependencies</artifactId>
-        <groupId>com.ossdisk</groupId>
+        <groupId>io.cloud.layer</groupId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../cloud-layer-dependencies</relativePath>
     </parent>
