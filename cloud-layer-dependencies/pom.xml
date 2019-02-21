@@ -20,6 +20,9 @@
         <lombok.version>1.18.6</lombok.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
         <netty-all.version>4.1.33.Final</netty-all.version>
+        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+        <springfox-swagger-ui.version>${springfox-swagger2.version}</springfox-swagger-ui.version>
+        <jjwt.version>0.9.0</jjwt.version>
     </properties>
 
 
@@ -50,8 +53,28 @@
                 <artifactId>spring-boot-devtools</artifactId>
                 <optional>true</optional>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
             <!--spring end-->
             <!--other-start-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox-swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox-swagger-ui.version}</version>
+            </dependency>
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
