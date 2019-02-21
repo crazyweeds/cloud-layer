@@ -20,6 +20,7 @@
         <module>logger-spring-boot-starter</module>
         <module>security-spring-boot-starters</module>
         <module>cache-spring-boot-starter</module>
+        <module>ci-spring-boot-starters</module>
     </modules>
 
 
