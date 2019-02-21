@@ -16,6 +16,7 @@
 
     <modules>
         <module>cloud-layer-utils</module>
+        <module>cloud-layer-bean</module>
     </modules>
 
 
