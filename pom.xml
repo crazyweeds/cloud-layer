@@ -62,6 +62,7 @@
         <module>cloud-layer-core</module>
         <module>cloud-layer-server</module>
         <module>cloud-layer-demo</module>
+        <module>cloud-layer-tests</module>
     </modules>
 
     <repositories>
