@@ -17,6 +17,7 @@
         <module>swagger-spring-boot-starter</module>
         <module>kafka-spring-boot-starter</module>
         <module>mybatis-spring-boot-starters</module>
+        <module>mail-spring-boot-starter</module>
     </modules>
 
 
