@@ -10,7 +10,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <artifactId>web-spring-boot-starter</artifactId>
     <description>web 基础依赖,统一容器，同一版本</description>
 
