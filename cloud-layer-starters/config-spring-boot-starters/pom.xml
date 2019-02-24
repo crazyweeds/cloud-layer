@@ -18,6 +18,8 @@
         <module>kafka-spring-boot-starter</module>
         <module>mybatis-spring-boot-starters</module>
         <module>mail-spring-boot-starter</module>
+        <module>security-spring-boot-starter</module>
+        <module>shiro-spring-boot-starter</module>
     </modules>
 
 
