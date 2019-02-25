@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "layer.spring.security",
+      "type": "io.cloud.layer.security.properties.SpringSecurityProperties",
+      "sourceType": "io.cloud.layer.security.properties.SpringSecurityProperties"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

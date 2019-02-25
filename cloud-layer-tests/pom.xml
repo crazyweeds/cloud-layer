@@ -14,8 +14,25 @@
     <artifactId>cloud-layer-tests</artifactId>
     <description>测试项目</description>
 
+    <properties>
+        <java.version>11</java.version>
+    </properties>
+
     <modules>
         <module>cloud-layer-security-test</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.cloud.layer</groupId>
+            <artifactId>security-spring-boot-starter</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cloud.layer</groupId>
+            <artifactId>cloud-layer-bean</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>
