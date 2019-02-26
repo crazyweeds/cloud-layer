@@ -1,17 +1,19 @@
-package io.cloud.layer.security;
+package io.cloud.layer.swagger;
 
+import io.cloud.layer.EnableSwagger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author RippleChan
- * @date 2019-02-24 20:23
+ * @date 2019-02-27 00:34
  */
 @SpringBootApplication
-public class SecurityApplication {
+@EnableSwagger
+public class SwaggerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SecurityApplication.class, args);
+        SpringApplication.run(SwaggerApplication.class, args);
     }
 
 }

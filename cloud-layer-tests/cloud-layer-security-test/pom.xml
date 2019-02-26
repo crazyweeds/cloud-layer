@@ -13,5 +13,13 @@
     <description>测试</description>
     <artifactId>cloud-layer-security-test</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>io.cloud.layer</groupId>
+            <artifactId>security-spring-boot-starter</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
 
 </project>

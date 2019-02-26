@@ -24,6 +24,8 @@
         <springfox-swagger-ui.version>${springfox-swagger2.version}</springfox-swagger-ui.version>
         <jjwt.version>0.9.0</jjwt.version>
         <spring-cloud-security.version>2.1.1.RELEASE</spring-cloud-security.version>
+        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+        <swagger-models.version>1.5.22</swagger-models.version>
     </properties>
 
 
@@ -80,6 +82,35 @@
                 <version>${spring-boot.version}</version>
             </dependency>
             <!--spring end-->
+            <!--swagger-start-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox-swagger2.version}</version>
+                <exclusions>
+                    <!--该版本有BUG https://github.com/swagger-api/swagger-core/issues/2979-->
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-models</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger-models.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox-swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-spring-web</artifactId>
+                <version>${springfox-swagger2.version}</version>
+            </dependency>
+            <!--swagger-end-->
             <!--other-start-->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
