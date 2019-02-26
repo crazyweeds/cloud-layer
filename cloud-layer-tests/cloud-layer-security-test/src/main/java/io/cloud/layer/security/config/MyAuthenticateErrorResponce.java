@@ -1,7 +1,6 @@
 package io.cloud.layer.security.config;
 
 import io.cloud.layer.bean.basic.impl.HttpResult;
-import io.cloud.layer.security.core.AuthenticateErrorResponce;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @date 2019-02-24 20:32
  */
 @Component
-public class MyAuthenticateErrorResponce<T> extends HttpResult<T> implements AuthenticateErrorResponce {
+public class MyAuthenticateErrorResponce<T> extends HttpResult<T> {
 
     private static final long serialVersionUID = -6538505210546564485L;
 

@@ -1,11 +1,53 @@
 {
   "groups": [
     {
-      "name": "layer.spring.security",
+      "name": "spring.security",
       "type": "io.cloud.layer.security.properties.SpringSecurityProperties",
       "sourceType": "io.cloud.layer.security.properties.SpringSecurityProperties"
     }
   ],
-  "properties": [],
+  "properties": [
+    {
+      "name": "spring.security.disable-csrf",
+      "type": "java.lang.Boolean",
+      "description": "CSRF防护开关，TRUE=关闭Csrf，FALSE=开启 CSRF 默认关闭 CRSF 防护",
+      "sourceType": "io.cloud.layer.security.properties.SpringSecurityProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.security.enable-authorize-requests",
+      "type": "java.lang.Boolean",
+      "description": "@see {@link SecurityCoreConfig#enableAuthorizeRequests(org.springframework.security.config.annotation.web.builders.HttpSecurity)} 默认开启",
+      "sourceType": "io.cloud.layer.security.properties.SpringSecurityProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.security.ignore-path",
+      "type": "java.lang.String[]",
+      "description": "不需要授权认证的路径",
+      "sourceType": "io.cloud.layer.security.properties.SpringSecurityProperties",
+      "defaultValue": []
+    },
+    {
+      "name": "spring.security.login-page",
+      "type": "java.lang.String",
+      "description": "@see RedirectSecurityRequestController#redirect(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse) 登录页面，对于非接口开发的时候，一定需要配置",
+      "sourceType": "io.cloud.layer.security.properties.SpringSecurityProperties",
+      "defaultValue": "\/login.html"
+    },
+    {
+      "name": "spring.security.login-processing-url",
+      "type": "java.lang.String",
+      "description": "用于处理登录请求的地址",
+      "sourceType": "io.cloud.layer.security.properties.SpringSecurityProperties",
+      "defaultValue": "\/login"
+    },
+    {
+      "name": "spring.security.login-type",
+      "type": "io.cloud.layer.security.core.LoginTypeEnum",
+      "description": "方式",
+      "sourceType": "io.cloud.layer.security.properties.SpringSecurityProperties"
+    }
+  ],
   "hints": []
 }
