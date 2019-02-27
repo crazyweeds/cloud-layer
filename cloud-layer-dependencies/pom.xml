@@ -26,6 +26,7 @@
         <spring-cloud-security.version>2.1.1.RELEASE</spring-cloud-security.version>
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <swagger-models.version>1.5.22</swagger-models.version>
+        <spring-boot-starter-remote-shell.version>1.5.19.RELEASE</spring-boot-starter-remote-shell.version>
     </properties>
 
 
@@ -80,6 +81,11 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-mail</artifactId>
                 <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-remote-shell</artifactId>
+                <version>${spring-boot-starter-remote-shell.version}</version>
             </dependency>
             <!--spring end-->
             <!--swagger-start-->
