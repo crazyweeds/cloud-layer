@@ -16,7 +16,6 @@
     <modules>
         <module>web-spring-boot-starter</module>
         <module>log-spring-boot-starters</module>
-        <module>shell-spring-boot-starter</module>
     </modules>
 
 
