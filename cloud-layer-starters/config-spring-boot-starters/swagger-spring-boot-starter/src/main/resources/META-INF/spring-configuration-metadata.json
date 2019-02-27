@@ -10,42 +10,49 @@
     {
       "name": "swagger.api.info.contact-name",
       "type": "java.lang.String",
+      "description": "联系人",
       "sourceType": "io.cloud.layer.config.SwaggerProperties",
       "defaultValue": "RippleChan"
     },
     {
       "name": "swagger.api.info.description",
       "type": "java.lang.String",
+      "description": "描述信息",
       "sourceType": "io.cloud.layer.config.SwaggerProperties",
       "defaultValue": "Swagger-UI"
     },
     {
       "name": "swagger.api.info.license",
       "type": "java.lang.String",
+      "description": "协议",
       "sourceType": "io.cloud.layer.config.SwaggerProperties",
       "defaultValue": "Apache License"
     },
     {
       "name": "swagger.api.info.license-url",
       "type": "java.lang.String",
+      "description": "协议内容地址",
       "sourceType": "io.cloud.layer.config.SwaggerProperties",
       "defaultValue": "https:\/\/www.apache.org\/licenses\/LICENSE-2.0"
     },
     {
       "name": "swagger.api.info.terms-of-service-url",
       "type": "java.lang.String",
+      "description": "团队URL",
       "sourceType": "io.cloud.layer.config.SwaggerProperties",
       "defaultValue": "http:\/\/www.cloud-layer.io"
     },
     {
       "name": "swagger.api.info.title",
       "type": "java.lang.String",
+      "description": "title名称",
       "sourceType": "io.cloud.layer.config.SwaggerProperties",
       "defaultValue": "swagger-spring-boot-starter"
     },
     {
       "name": "swagger.api.info.version",
       "type": "java.lang.String",
+      "description": "Api接口版本",
       "sourceType": "io.cloud.layer.config.SwaggerProperties",
       "defaultValue": "V1.0"
     }
