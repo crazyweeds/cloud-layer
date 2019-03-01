@@ -3,23 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>cloud-layer-starters</artifactId>
+        <artifactId>config-spring-boot-starters</artifactId>
         <groupId>io.cloud.layer</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>config-spring-boot-starters</artifactId>
     <packaging>pom</packaging>
-    <description>配置相关</description>
+    <artifactId>auth-spring-boot-starters</artifactId>
+    <description>各种授权认证</description>
+
 
     <modules>
-        <module>swagger-spring-boot-starter</module>
-        <module>kafka-spring-boot-starter</module>
-        <module>mybatis-spring-boot-starters</module>
-        <module>mail-spring-boot-starter</module>
-        <module>security-spring-boot-starter</module>
-        <module>auth-spring-boot-starters</module>
+        <module>basic-token-spring-boot-starter</module>
+        <module>basic-jwt-token-spring-boot-starter</module>
     </modules>
 
 
