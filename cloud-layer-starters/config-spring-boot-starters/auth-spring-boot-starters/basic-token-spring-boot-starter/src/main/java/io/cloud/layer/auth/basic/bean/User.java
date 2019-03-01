@@ -8,7 +8,7 @@ import io.cloud.layer.auth.basic.core.SessionUser;
  * @author RippleChan
  * @date 2019-03-01 22:31
  */
-public class DefaultSessionUser implements SessionUser {
+public class User implements SessionUser {
 
 
 
