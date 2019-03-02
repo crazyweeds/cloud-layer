@@ -16,6 +16,7 @@
 
     <modules>
         <module>zuul-gateway-server</module>
+        <module>eureka-register-server</module>
     </modules>
 
 
