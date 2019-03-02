@@ -23,6 +23,11 @@
             <artifactId>web-spring-boot-starter</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <!--如果使用的JDK版本是11，那么就需要该依赖-->
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+        </dependency>
     </dependencies>
 
 
