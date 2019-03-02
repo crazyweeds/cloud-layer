@@ -10,17 +10,12 @@
 
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
-    <artifactId>zuul-gateway-server</artifactId>
+    <artifactId>eureka-client</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.cloud.layer</groupId>
-            <artifactId>web-spring-boot-starter</artifactId>
-            <version>${project.version}</version>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
     </dependencies>
 

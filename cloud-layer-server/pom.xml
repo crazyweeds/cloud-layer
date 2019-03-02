@@ -15,8 +15,9 @@
     <description>日志等服务</description>
 
     <modules>
-        <module>zuul-gateway-server</module>
-        <module>eureka-register-server</module>
+        <module>zuul-gateway</module>
+        <module>eureka-server</module>
+        <module>eureka-client</module>
     </modules>
 
 
