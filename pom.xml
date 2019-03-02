@@ -20,7 +20,7 @@
     <inceptionYear>2019</inceptionYear>
     <description>
         1.基于 Spring Cloud的微服务快速开发基础项目，本项目的终极目标是能够贯穿项目的整个开发周期，从基础开发的增删改查，到项目的运维、监控、日志、文档生成；
-        2.既然是 cloud-layer 那自然是无比灵活，但轻盈无比；
+        2.既然是 cloud-layer 那自然是无比灵活，但轻盈无比。
     </description>
 
     <licenses>
