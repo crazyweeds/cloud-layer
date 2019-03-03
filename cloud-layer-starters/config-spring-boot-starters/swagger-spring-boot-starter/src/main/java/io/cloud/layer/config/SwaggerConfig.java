@@ -37,8 +37,9 @@ public class SwaggerConfig {
     @Autowired
     private SwaggerProperties swaggerProperties;
 
+
     @Bean
-    public Docket petApi() {
+    public Docket apis() {
         return new Docket(DocumentationType.SWAGGER_2)
             .select()
             .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
