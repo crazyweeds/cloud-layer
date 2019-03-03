@@ -18,4 +18,4 @@
   
 ### 可用模块：
 
-   [https://github.com/crazyweeds/cloud-layer/tree/master/cloud-layer-starters/config-spring-boot-starters/swagger-spring-boot-starter](swagger-spring-boot-starter)（基本可用）
+   [swagger-spring-boot-starter](https://github.com/crazyweeds/cloud-layer/tree/master/cloud-layer-starters/config-spring-boot-starters/swagger-spring-boot-starter)（基本可用）
