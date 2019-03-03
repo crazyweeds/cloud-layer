@@ -10,11 +10,12 @@
   
 ### 技术栈
 
-    Spring Cloud
-    Spring Boot2.X
+    JDK11
+    Spring Cloud Greenwich.RELEASE
+    Spring Boot 2.X
     Maven
   
   
 ### 可用模块：
 
-   swagger-spring-boot-starter（基本可用）
+   [https://github.com/crazyweeds/cloud-layer/tree/master/cloud-layer-starters/config-spring-boot-starters/swagger-spring-boot-starter](swagger-spring-boot-starter)（基本可用）
