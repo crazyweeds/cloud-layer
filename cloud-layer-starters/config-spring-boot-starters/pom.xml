@@ -20,6 +20,7 @@
         <module>mail-spring-boot-starter</module>
         <module>security-spring-boot-starter</module>
         <module>auth-spring-boot-starters</module>
+        <module>websocket-spring-boot-starter</module>
     </modules>
 
 

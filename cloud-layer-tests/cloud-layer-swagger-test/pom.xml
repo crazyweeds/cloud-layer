@@ -21,6 +21,11 @@
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.cloud.layer</groupId>
+            <artifactId>cloud-layer-utils</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

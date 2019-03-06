@@ -68,7 +68,7 @@
     <repositories>
         <repository>
             <id>mvn-repository</id>
-            <url>http://repo1.maven.org/maven2</url>
+            <url>https://maven.aliyun.com/repository/public</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -81,7 +81,7 @@
     <pluginRepositories>
         <pluginRepository>
             <id>mvn-repository</id>
-            <url>http://repo1.maven.org/maven2</url>
+            <url>https://maven.aliyun.com/repository/public</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
