@@ -28,6 +28,7 @@
         <swagger-models.version>1.5.22</swagger-models.version>
         <spring-cloud-starter-netflix-zuul.version>2.1.0.RELEASE</spring-cloud-starter-netflix-zuul.version>
         <jaxb-runtime.version>2.3.1</jaxb-runtime.version>
+        <commons-io.version>2.6</commons-io.version>
     </properties>
 
 
@@ -154,6 +155,11 @@
                 <groupId>org.glassfish.jaxb</groupId>
                 <artifactId>jaxb-runtime</artifactId>
                 <version>${jaxb-runtime.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
             </dependency>
             <!--other-end-->
         </dependencies>
