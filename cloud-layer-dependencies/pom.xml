@@ -29,6 +29,7 @@
         <spring-cloud-starter-netflix-zuul.version>2.1.0.RELEASE</spring-cloud-starter-netflix-zuul.version>
         <jaxb-runtime.version>2.3.1</jaxb-runtime.version>
         <commons-io.version>2.6</commons-io.version>
+        <spring-cloud-starter-zipkin.version>2.1.1.RELEASE</spring-cloud-starter-zipkin.version>
     </properties>
 
 
@@ -88,6 +89,11 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
                 <version>${spring-cloud-starter-netflix-zuul.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-zipkin</artifactId>
+                <version>${spring-cloud-starter-zipkin.version}</version>
             </dependency>
             <!--spring end-->
             <!--swagger-start-->

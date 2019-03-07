@@ -18,6 +18,7 @@
         <module>zuul-gateway</module>
         <module>eureka-server</module>
         <module>eureka-client</module>
+        <module>zipkin-server</module>
     </modules>
 
 

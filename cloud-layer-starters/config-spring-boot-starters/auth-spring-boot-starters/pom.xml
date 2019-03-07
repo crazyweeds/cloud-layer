@@ -12,7 +12,7 @@
     <packaging>pom</packaging>
     <artifactId>auth-spring-boot-starters</artifactId>
     <description>各种授权认证</description>
-
+    <!--todo 未完善-->
 
     <modules>
         <module>basic-token-spring-boot-starter</module>
