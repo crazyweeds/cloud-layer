@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
@@ -48,4 +49,17 @@ public class SqlUtils {
         return null;
     }
 
+    /**
+     * String[] 转换为 Map
+     *
+     * @param parameters
+     * @return
+     */
+    public static Map<String, String> getParameters(String... parameters) {
+        HashMap<String, String> map = new HashMap<>(parameters.length / 2);
+        for (int i = 0; i < parameters.length - 1; i++) {
+            map.put(parameters[i], parameters[i + 1]);
+        }
+        return map;
+    }
 }
