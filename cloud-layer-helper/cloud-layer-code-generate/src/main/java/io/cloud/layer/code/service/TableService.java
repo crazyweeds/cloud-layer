@@ -13,16 +13,18 @@ public interface TableService {
 
     /**
      * 根据关键字筛选表
+     *
      * @param keyWord
      * @return
      */
-    List<TableInfo> getTableInfosByKeyWord(String database,String keyWord);
+    List<TableInfo> getTableInfosByKeyWord(String database, String keyWord);
 
     /**
      * 根据表明获取表信息
+     *
      * @param tableName
      * @return
      */
-    Bean getBeanByTableName(String tableName);
+    Bean getBeanByTableName(String database, String tableName);
 
 }

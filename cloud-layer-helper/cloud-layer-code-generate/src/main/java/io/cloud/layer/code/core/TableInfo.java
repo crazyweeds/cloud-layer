@@ -15,6 +15,7 @@ public class TableInfo implements Serializable {
 
     private static final long serialVersionUID = 2278052531938627336L;
 
+    private String databaseName;
     private String tableName;
     private String tableComment;
 

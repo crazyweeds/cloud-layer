@@ -122,7 +122,8 @@ public class Bean extends DataModel implements Serializable {
     @ToString
     public static class Field {
 
-        private String name;
+        private String columnName;
+        private String property;
         private Boolean isId;
         private String jdbcType;
         private String javaType;
@@ -134,11 +135,6 @@ public class Bean extends DataModel implements Serializable {
 
         }
 
-        public Field(String comment, List<String> annotations, String type, String name) {
-            this.comment = comment;
-            this.annotations = annotations;
-            this.name = type + " " + name;
-        }
 
     }
 

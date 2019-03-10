@@ -6,6 +6,7 @@ import io.cloud.layer.code.service.TableService;
 import io.cloud.layer.code.utils.BeanUtils;
 import io.cloud.layer.code.utils.DatasourceUtils;
 import io.cloud.layer.code.utils.SqlUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.HashMap;
@@ -21,6 +22,12 @@ public class TableServiceImpl implements TableService {
 
     @Override
     public List<TableInfo> getTableInfosByKeyWord(String database, String tableName) {
+        if (StringUtils.isBlank(tableName)) {
+            tableName = "";
+        }
+        if (StringUtils.isBlank(database)) {
+            throw new RuntimeException("缺失数据库名称");
+        }
         Map<String, String> parameters = SqlUtils.getParameters("tableName", tableName, "database", database);
         String originalSql = SqlUtils.getSql("getTableInfosByKeyWord");
         String sql = SqlUtils.getSql(originalSql, parameters);
@@ -32,7 +39,7 @@ public class TableServiceImpl implements TableService {
     }
 
     @Override
-    public Bean getBeanByTableName(String tableName) {
+    public Bean getBeanByTableName(String database, String tableName) {
         JdbcTemplate jdbcTemplate = DatasourceUtils.getJdbcTemplate();
         String sql = SqlUtils.getSql("getBeanByTableName");
         HashMap<String, String> parameters = new HashMap<>(1);
