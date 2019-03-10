@@ -25,6 +25,7 @@ import java.util.List;
 public class Bean extends DataModel implements Serializable {
 
     private static final long serialVersionUID = -3991036267848610037L;
+
     /**
      * 表名
      */
@@ -121,9 +122,13 @@ public class Bean extends DataModel implements Serializable {
     @ToString
     public static class Field {
 
+        private String name;
+        private Boolean isId;
+        private String jdbcType;
+        private String javaType;
+        private Integer length;
         private String comment;
         private List<String> annotations = new ArrayList<>();
-        private String name;
 
         private Field() {
 
