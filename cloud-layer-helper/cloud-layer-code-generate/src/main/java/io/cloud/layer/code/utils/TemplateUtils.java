@@ -3,13 +3,11 @@ package io.cloud.layer.code.utils;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import io.cloud.layer.code.datamodel.Bean;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 
 /**
  * 模板文件默认存放在resources/index.ftl目录下
@@ -55,13 +53,6 @@ public class TemplateUtils {
         if (!file.exists()) {
             file.mkdirs();
         }
-    }
-
-    public static void main(String[] args) throws IOException {
-        String file = "core.ftl";
-        ArrayList<Bean.Field> fields = new ArrayList<>();
-        ArrayList<String> annotation = new ArrayList<>();
-        annotation.add("@NotNull");
     }
 
 }
