@@ -63,6 +63,7 @@
         <module>cloud-layer-server</module>
         <module>cloud-layer-demo</module>
         <module>cloud-layer-tests</module>
+        <module>cloud-layer-helper</module>
     </modules>
 
     <repositories>
