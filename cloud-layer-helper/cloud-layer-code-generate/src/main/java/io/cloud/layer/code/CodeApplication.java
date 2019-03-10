@@ -2,7 +2,6 @@ package io.cloud.layer.code;
 
 import io.cloud.layer.code.utils.DatasourceUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import java.util.Iterator;
 import java.util.List;
@@ -15,8 +14,7 @@ import java.util.Map;
 public class CodeApplication {
 
     public static void main(String[] args) {
-        DriverManagerDataSource dataSource = DatasourceUtils.getDataSource();
-        JdbcTemplate jdbcTemplate=new JdbcTemplate(dataSource);
+        JdbcTemplate jdbcTemplate = DatasourceUtils.getJdbcTemplate();
         List<Map<String, Object>> maps = jdbcTemplate.queryForList("select * from COLUMNS;");
         for (int i = 0; i < maps.size(); i++) {
             Map<String, Object> map = maps.get(i);

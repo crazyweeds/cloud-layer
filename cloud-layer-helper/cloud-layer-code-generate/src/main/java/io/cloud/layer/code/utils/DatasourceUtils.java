@@ -1,6 +1,7 @@
 package io.cloud.layer.code.utils;
 
 import org.springframework.core.io.support.PropertiesLoaderUtils;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import java.io.IOException;
@@ -15,12 +16,16 @@ public class DatasourceUtils {
     private static final DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
     @SuppressWarnings("ALL")
-    public static DriverManagerDataSource getDataSource() {
+    private static DriverManagerDataSource getDataSource() {
         Properties properties = getProperties();
         dataSource.setDriverClassName(properties.getProperty("class"));
         dataSource.setUrl(properties.getProperty("url"));
         dataSource.setConnectionProperties(properties);
         return dataSource;
+    }
+
+    public synchronized static JdbcTemplate getJdbcTemplate() {
+        return new JdbcTemplate(getDataSource());
     }
 
     private static Properties getProperties() {

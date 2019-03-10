@@ -1,9 +1,12 @@
 package io.cloud.layer.code.utils;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.core.io.support.PropertiesLoaderUtils;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Properties;
 
 /**
  * @author RippleChan
@@ -32,6 +35,17 @@ public class SqlUtils {
             throw new RuntimeException("缺少足够的SQL参数");
         }
         return finalSql;
+    }
+
+    public static String getSql(String serviceName) {
+        Properties properties = null;
+        try {
+            properties = PropertiesLoaderUtils.loadAllProperties("sql-mysql.properties");
+            return properties.getProperty(serviceName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }
