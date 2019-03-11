@@ -19,3 +19,9 @@
 ### 可用模块：
 
    [swagger-spring-boot-starter](https://github.com/crazyweeds/cloud-layer/tree/master/cloud-layer-starters/config-spring-boot-starters/swagger-spring-boot-starter)（基本可用）
+   
+   [basic-token-spring-boot-starter](https://github.com/crazyweeds/cloud-layer/tree/master/cloud-layer-starters/config-spring-boot-starters/auth-spring-boot-starters/basic-token-spring-boot-starter) (暂停，因为实在没意思，后续有业务模块的时候再写吧)
+   
+   [zipkin-server-spring-cloud-starter](https://github.com/crazyweeds/cloud-layer/tree/master/cloud-layer-starters/config-spring-boot-starters/zipkin-server-spring-cloud-starter) (提上日程，因为官方没有starter，想把所有可配参数暴露出来)
+   
+   [cloud-layer-code-generate](https://github.com/crazyweeds/cloud-layer/tree/master/cloud-layer-helper/cloud-layer-code-generate)（施工中,公司项目可能会需要）
