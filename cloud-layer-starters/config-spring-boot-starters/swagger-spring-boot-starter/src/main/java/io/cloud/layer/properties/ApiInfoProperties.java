@@ -1,16 +1,14 @@
-package io.cloud.layer.config;
+package io.cloud.layer.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * @see springfox.documentation.service.ApiInfo
- * @author RippleChan
- * @date 2019-02-27 01:52
+ * api info 相关的配置
  */
 @Data
-@ConfigurationProperties("swagger.api.info")
-public class SwaggerProperties {
+@ConfigurationProperties("swagger.config.info")
+public class ApiInfoProperties {
 
     /**
      * Api接口版本
@@ -45,7 +43,7 @@ public class SwaggerProperties {
     /**
      * 联系人
      */
-    private String contactName = "RippleChan";
-
+    private String contactName = "crazyweeds@gmail.com";
 
 }
+

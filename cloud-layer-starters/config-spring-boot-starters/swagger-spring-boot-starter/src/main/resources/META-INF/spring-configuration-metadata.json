@@ -1,60 +1,102 @@
 {
   "groups": [
     {
-      "name": "swagger.api.info",
+      "name": "swagger.config",
       "type": "io.cloud.layer.config.SwaggerCoreProperties",
       "sourceType": "io.cloud.layer.config.SwaggerCoreProperties"
+    },
+    {
+      "name": "swagger.config.info",
+      "type": "io.cloud.layer.properties.ApiInfoProperties",
+      "sourceType": "io.cloud.layer.properties.ApiInfoProperties"
+    },
+    {
+      "name": "swagger.config.security",
+      "type": "io.cloud.layer.properties.SecurityProperties",
+      "sourceType": "io.cloud.layer.properties.SecurityProperties"
     }
   ],
   "properties": [
     {
-      "name": "swagger.api.info.contact-name",
-      "type": "java.lang.String",
-      "description": "联系人",
-      "sourceType": "io.cloud.layer.config.SwaggerCoreProperties",
-      "defaultValue": "RippleChan"
+      "name": "swagger.config.info",
+      "type": "io.cloud.layer.properties.ApiInfoProperties",
+      "description": "ApiInfo 相关的配置",
+      "sourceType": "io.cloud.layer.config.SwaggerCoreProperties"
     },
     {
-      "name": "swagger.api.info.description",
+      "name": "swagger.config.info.contact-name",
+      "type": "java.lang.String",
+      "description": "联系人",
+      "sourceType": "io.cloud.layer.properties.ApiInfoProperties",
+      "defaultValue": "crazyweeds@gmail.com"
+    },
+    {
+      "name": "swagger.config.info.description",
       "type": "java.lang.String",
       "description": "描述信息",
-      "sourceType": "io.cloud.layer.config.SwaggerCoreProperties",
+      "sourceType": "io.cloud.layer.properties.ApiInfoProperties",
       "defaultValue": "Swagger-UI"
     },
     {
-      "name": "swagger.api.info.license",
+      "name": "swagger.config.info.license",
       "type": "java.lang.String",
       "description": "协议",
-      "sourceType": "io.cloud.layer.config.SwaggerCoreProperties",
+      "sourceType": "io.cloud.layer.properties.ApiInfoProperties",
       "defaultValue": "Apache License"
     },
     {
-      "name": "swagger.api.info.license-url",
+      "name": "swagger.config.info.license-url",
       "type": "java.lang.String",
       "description": "协议内容地址",
-      "sourceType": "io.cloud.layer.config.SwaggerCoreProperties",
+      "sourceType": "io.cloud.layer.properties.ApiInfoProperties",
       "defaultValue": "https:\/\/www.apache.org\/licenses\/LICENSE-2.0"
     },
     {
-      "name": "swagger.api.info.terms-of-service-url",
+      "name": "swagger.config.info.terms-of-service-url",
       "type": "java.lang.String",
       "description": "团队URL",
-      "sourceType": "io.cloud.layer.config.SwaggerCoreProperties",
+      "sourceType": "io.cloud.layer.properties.ApiInfoProperties",
       "defaultValue": "http:\/\/www.cloud-layer.io"
     },
     {
-      "name": "swagger.api.info.title",
+      "name": "swagger.config.info.title",
       "type": "java.lang.String",
       "description": "title名称",
-      "sourceType": "io.cloud.layer.config.SwaggerCoreProperties",
+      "sourceType": "io.cloud.layer.properties.ApiInfoProperties",
       "defaultValue": "swagger-spring-boot-starter"
     },
     {
-      "name": "swagger.api.info.version",
+      "name": "swagger.config.info.version",
       "type": "java.lang.String",
       "description": "Api接口版本",
-      "sourceType": "io.cloud.layer.config.SwaggerCoreProperties",
+      "sourceType": "io.cloud.layer.properties.ApiInfoProperties",
       "defaultValue": "V1.0"
+    },
+    {
+      "name": "swagger.config.security",
+      "type": "io.cloud.layer.properties.SecurityProperties",
+      "description": "安全相关的配置",
+      "sourceType": "io.cloud.layer.config.SwaggerCoreProperties"
+    },
+    {
+      "name": "swagger.config.security.enable-token-auth",
+      "type": "java.lang.Boolean",
+      "description": "是否开启 token 验证, 默认开启。",
+      "sourceType": "io.cloud.layer.properties.SecurityProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "swagger.config.security.header-name",
+      "type": "java.lang.String",
+      "description": "参数名称,默认：Authorization。",
+      "sourceType": "io.cloud.layer.properties.SecurityProperties",
+      "defaultValue": "Authorization"
+    },
+    {
+      "name": "swagger.config.security.in",
+      "type": "io.swagger.models.auth.In",
+      "description": "放在什么地方呢？默认放在 header 上面",
+      "sourceType": "io.cloud.layer.properties.SecurityProperties"
     }
   ],
   "hints": []
