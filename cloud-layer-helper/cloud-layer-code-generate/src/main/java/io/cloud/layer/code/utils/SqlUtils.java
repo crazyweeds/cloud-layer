@@ -24,7 +24,7 @@ public class SqlUtils {
      * @param parameters
      * @return
      */
-    public static String getSql(String sql, Map<String,String> parameters) {
+    public static String generateSql(String sql, Map<String,String> parameters) {
         Iterator<Map.Entry<String, String>> iterator = parameters.entrySet().iterator();
         while (iterator.hasNext()) {
             Map.Entry<String, String> next = iterator.next();

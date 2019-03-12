@@ -22,6 +22,7 @@
         <module>auth-spring-boot-starters</module>
         <module>websocket-spring-boot-starter</module>
         <module>zipkin-server-spring-cloud-starter</module>
+        <module>validata-spring-boot-starter-web</module>
     </modules>
 
 

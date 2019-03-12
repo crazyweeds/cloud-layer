@@ -22,7 +22,7 @@ import java.util.List;
 @ToString
 @Getter
 @Setter
-public class Bean extends DataModel implements Serializable {
+public class BeanModel extends DataModel implements Serializable {
 
     private static final long serialVersionUID = -3991036267848610037L;
 
@@ -66,11 +66,11 @@ public class Bean extends DataModel implements Serializable {
      */
     private List<Field> fields = new ArrayList<>();
 
-    private Bean() {
+    private BeanModel() {
 
     }
 
-    private Bean(String tableName, String packageName, List<String> jdkImports, List<String> otherImports, List<String> beanComments, List<String> classAnnotations, String className, String uid, List<Field> fields) {
+    private BeanModel(String tableName, String packageName, List<String> jdkImports, List<String> otherImports, List<String> beanComments, List<String> classAnnotations, String className, String uid, List<Field> fields) {
         this.tableName = tableName;
         this.packageName = packageName;
         this.jdkImports = jdkImports;
@@ -82,7 +82,7 @@ public class Bean extends DataModel implements Serializable {
         this.fields = fields;
     }
 
-    public Bean(BeanComment beanComment) {
+    public BeanModel(BeanComment beanComment) {
         beanComments.add("* " + beanComment.getComment());
         beanComments.add("* @author " + beanComment.getAuthor());
         beanComments.add("* @date " + beanComment.getDate());
