@@ -1,7 +1,7 @@
 package io.cloud.layer.code.service;
 
 import io.cloud.layer.code.core.TableInfo;
-import io.cloud.layer.code.datamodel.Bean;
+import io.cloud.layer.code.datamodel.BeanModel;
 
 import java.util.List;
 
@@ -25,6 +25,6 @@ public interface TableService {
      * @param tableName
      * @return
      */
-    Bean getBeanByTableName(String database, String tableName);
+    BeanModel getBeanByTableName(String database, String tableName);
 
 }
