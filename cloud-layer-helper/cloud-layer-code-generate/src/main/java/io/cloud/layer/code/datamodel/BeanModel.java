@@ -1,10 +1,7 @@
 package io.cloud.layer.code.datamodel;
 
 import io.cloud.layer.code.utils.TextUtils;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -22,6 +19,7 @@ import java.util.List;
 @ToString
 @Getter
 @Setter
+@Builder
 public class BeanModel extends DataModel implements Serializable {
 
     private static final long serialVersionUID = -3991036267848610037L;
@@ -66,7 +64,7 @@ public class BeanModel extends DataModel implements Serializable {
      */
     private List<Field> fields = new ArrayList<>();
 
-    private BeanModel() {
+    public BeanModel() {
 
     }
 
@@ -120,20 +118,44 @@ public class BeanModel extends DataModel implements Serializable {
      */
     @Data
     @ToString
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Accessors(chain = true)
     public static class Field {
 
+        /**
+         * 列名
+         */
         private String columnName;
+        /**
+         * todo
+         */
         private String property;
+        /**
+         * 是否是ID
+         */
         private Boolean isId;
+        /**
+         * JDBC类型
+         */
         private String jdbcType;
+        /**
+         * Java类型
+         */
         private String javaType;
+        /**
+         * 长度
+         */
         private Integer length;
+        /**
+         * 注释
+         */
         private String comment;
+        /**
+         * 注解列表
+         */
         private List<String> annotations = new ArrayList<>();
-
-        private Field() {
-
-        }
 
 
     }

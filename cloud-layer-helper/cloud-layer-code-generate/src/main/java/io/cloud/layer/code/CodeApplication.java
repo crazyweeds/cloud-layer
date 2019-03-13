@@ -26,10 +26,13 @@ public class CodeApplication {
 
     private static final TableServiceImpl tableService = new TableServiceImpl();
     private static final TemplateServiceImpl TemplateServiceImpl = new TemplateServiceImpl();
+    private static final String PACKAGE_NAME;
 
     static {
         DATABASE = "code";
         TABLENAME = "";
+        PACKAGE_NAME = "io.cloud.layer.code";
+        System.setProperty("PACKAGE_NAME", PACKAGE_NAME);
     }
 
     /**
@@ -53,7 +56,7 @@ public class CodeApplication {
         log.info("<---------------------tables----------------------");
         tableInfosByKeyWord.forEach(tableInfo -> {
             log.info("正在查询表信息：{}", tableInfo.toString());
-            BeanModel beanModelByTableName = tableService.getBeanByTableName(tableInfo.getDatabaseName(), tableInfo.getTableName());
+            BeanModel beanModelByTableName = tableService.getBeanByTableName(tableInfo);
         });
     }
 

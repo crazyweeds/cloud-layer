@@ -25,6 +25,6 @@ public interface TableService {
      * @param tableName
      * @return
      */
-    BeanModel getBeanByTableName(String database, String tableName);
+    BeanModel getBeanByTableName(TableInfo tableInfo);
 
 }
