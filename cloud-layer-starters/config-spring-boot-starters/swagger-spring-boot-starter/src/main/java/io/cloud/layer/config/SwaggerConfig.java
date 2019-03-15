@@ -1,12 +1,13 @@
 package io.cloud.layer.config;
 
 import com.fasterxml.classmate.TypeResolver;
-import io.cloud.layer.uitls.checker.BeanChecker;
 import io.swagger.annotations.Api;
+import io.swagger.models.auth.In;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.async.DeferredResult;
@@ -17,12 +18,17 @@ import springfox.documentation.schema.ModelRef;
 import springfox.documentation.schema.WildcardType;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.ApiKey;
+import springfox.documentation.service.AuthorizationScope;
+import springfox.documentation.service.SecurityReference;
 import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger.web.*;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static springfox.documentation.schema.AlternateTypeRules.newRule;
@@ -57,23 +63,28 @@ public class SwaggerConfig {
             .alternateTypeRules(newRule(typeResolver.resolve(DeferredResult.class, typeResolver.resolve(ResponseEntity.class, WildcardType.class)), typeResolver.resolve(WildcardType.class)))
             .useDefaultResponseMessages(false)
             .globalResponseMessage(RequestMethod.GET, newArrayList(new ResponseMessageBuilder().code(500).message("500 message").responseModel(new ModelRef("string")).build()))
+            .securitySchemes(Collections.singletonList(apiKey()))
+            .securityContexts(Collections.singletonList(securityContext()))
             .enableUrlTemplating(false);
-        this.enableTokenAuth(docket);
         return docket;
     }
 
-    /**
-     * 是否加入token验证
-     * @param docket
-     */
-    private void enableTokenAuth(Docket docket) {
-        if (swaggerCoreProperties.getSecurity().isEnableTokenAuth()) {
-            /**
-             * 参数检查:要么保持默认，要么配置正确
-             */
-            BeanChecker.notBlaknChecker(swaggerCoreProperties);
-            docket.securitySchemes(Collections.singletonList(new ApiKey(swaggerCoreProperties.getSecurity().getName(), swaggerCoreProperties.getSecurity().getKeyName(), swaggerCoreProperties.getSecurity().getIn().toValue())));
-        }
+    private ApiKey apiKey() {
+        return new ApiKey(HttpHeaders.AUTHORIZATION, HttpHeaders.AUTHORIZATION, In.HEADER.toValue());
+    }
+
+    private SecurityContext securityContext() {
+        return SecurityContext.builder()
+            .securityReferences(defaultAuth())
+            .forPaths(PathSelectors.any())
+            .build();
+    }
+
+    private List<SecurityReference> defaultAuth() {
+        AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
+        AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
+        authorizationScopes[0] = authorizationScope;
+        return Arrays.asList(new SecurityReference("Authorization", authorizationScopes));
     }
 
     @SuppressWarnings("ALL")

@@ -101,13 +101,6 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
                 <version>${springfox-swagger2.version}</version>
-                <exclusions>
-                    <!--该版本有BUG https://github.com/swagger-api/swagger-core/issues/2979-->
-                    <exclusion>
-                        <groupId>io.swagger</groupId>
-                        <artifactId>swagger-models</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>io.swagger</groupId>

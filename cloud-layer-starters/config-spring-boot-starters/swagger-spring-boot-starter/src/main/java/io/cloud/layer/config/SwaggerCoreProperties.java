@@ -1,7 +1,6 @@
 package io.cloud.layer.config;
 
 import io.cloud.layer.properties.ApiInfoProperties;
-import io.cloud.layer.properties.SecurityProperties;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -14,18 +13,13 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
  */
 @Data
 @ConfigurationProperties("swagger.config")
-@EnableConfigurationProperties({ApiInfoProperties.class, SecurityProperties.class})
+@EnableConfigurationProperties({ApiInfoProperties.class})
 public class SwaggerCoreProperties {
 
     /**
      * ApiInfo 相关的配置
      */
     private ApiInfoProperties info = new ApiInfoProperties();
-
-    /**
-     * 安全相关的配置
-     */
-    private SecurityProperties security = new SecurityProperties();
 
 
 }
