@@ -4,6 +4,7 @@ import io.cloud.layer.code.core.TableInfo;
 import io.cloud.layer.code.datamodel.BeanModel;
 import io.cloud.layer.code.service.impl.TableServiceImpl;
 import io.cloud.layer.code.service.impl.TemplateServiceImpl;
+import io.cloud.layer.code.utils.CamelUtils;
 import io.cloud.layer.code.utils.TemplateUtils;
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,13 +21,15 @@ import java.util.List;
 public class CodeApplication {
 
     /**
-     * 务必保证数据库存在
+     * 务必保证数据库存在，而且是全称
      */
     private final static String DATABASE;
     /**
-     * like查询的关键词：like %{TABLENAME}%
+     * 支持模糊，可以为空，但不能为null
      */
     private final static String TABLENAME;
+
+    private final static String POJO_FILE_PATH;
 
     private static final TableServiceImpl tableService = new TableServiceImpl();
     private static final TemplateServiceImpl TemplateServiceImpl = new TemplateServiceImpl();
@@ -36,6 +39,7 @@ public class CodeApplication {
         DATABASE = "code";
         TABLENAME = "";
         PACKAGE_NAME = "io.cloud.layer.code";
+        POJO_FILE_PATH = "/Users/{lalala}/Documents/develop/code/cloud-layer/cloud-layer-helper/cloud-layer-code-generate/src/main/resources/";
     }
 
     /**
@@ -61,7 +65,7 @@ public class CodeApplication {
             log.info("正在查询表信息：{}", tableInfo.toString());
             BeanModel beanModelByTableName = tableService.getBeanByTableName(tableInfo);
             beanModelByTableName.setPackageName(PACKAGE_NAME);
-            File file = new File("/Users/chenruibo/Documents/develop/code/cloud-layer/cloud-layer-helper/cloud-layer-code-generate/src/main/resources/a.java");
+            File file = new File(POJO_FILE_PATH + CamelUtils.formatClassName("", tableInfo.getTableName(), "", "_") + ".java");
             try {
                 FileWriter fileWriter = new FileWriter(file);
                 TemplateUtils.process("bean.ftl", beanModelByTableName, fileWriter);
