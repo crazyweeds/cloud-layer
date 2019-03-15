@@ -35,21 +35,21 @@ public class BeanModel extends DataModel implements Serializable {
     /**
      * jdk相关的imports
      */
-    private List<String> jdkImports = new ArrayList<>();
+    private List<String> jdkImports;
     /**
      * 其他imports
      */
-    private List<String> otherImports = new ArrayList<>();
+    private List<String> otherImports;
 
     /**
      * 类上面的注释
      */
-    private List<String> beanComments = new ArrayList<>();
+    private List<String> beanComments;
 
     /**
      * 类注解
      */
-    private List<String> classAnnotations = new ArrayList<>();
+    private List<String> classAnnotations;
     /**
      * 类名
      */
@@ -63,6 +63,7 @@ public class BeanModel extends DataModel implements Serializable {
      * fields
      */
     private List<Field> fields = new ArrayList<>();
+
 
     public BeanModel() {
 

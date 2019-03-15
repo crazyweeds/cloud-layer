@@ -4,8 +4,12 @@ import io.cloud.layer.code.core.TableInfo;
 import io.cloud.layer.code.datamodel.BeanModel;
 import io.cloud.layer.code.service.impl.TableServiceImpl;
 import io.cloud.layer.code.service.impl.TemplateServiceImpl;
+import io.cloud.layer.code.utils.TemplateUtils;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -32,7 +36,6 @@ public class CodeApplication {
         DATABASE = "code";
         TABLENAME = "";
         PACKAGE_NAME = "io.cloud.layer.code";
-        System.setProperty("PACKAGE_NAME", PACKAGE_NAME);
     }
 
     /**
@@ -57,6 +60,14 @@ public class CodeApplication {
         tableInfosByKeyWord.forEach(tableInfo -> {
             log.info("正在查询表信息：{}", tableInfo.toString());
             BeanModel beanModelByTableName = tableService.getBeanByTableName(tableInfo);
+            beanModelByTableName.setPackageName(PACKAGE_NAME);
+            File file = new File("/Users/chenruibo/Documents/develop/code/cloud-layer/cloud-layer-helper/cloud-layer-code-generate/src/main/resources/a.java");
+            try {
+                FileWriter fileWriter = new FileWriter(file);
+                TemplateUtils.process("bean.ftl", beanModelByTableName, fileWriter);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
     }
 
