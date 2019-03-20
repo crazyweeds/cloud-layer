@@ -3,6 +3,7 @@ package io.cloud.layer.code;
 import io.cloud.layer.code.core.TableInfo;
 import io.cloud.layer.code.datamodel.BeanModel;
 import io.cloud.layer.code.datamodel.ServiceModel;
+import io.cloud.layer.code.datamodel.ServiceModelImpl;
 import io.cloud.layer.code.service.impl.TableServiceImpl;
 import io.cloud.layer.code.utils.CamelUtils;
 import io.cloud.layer.code.utils.TemplateUtils;
@@ -74,8 +75,10 @@ public class CodeApplication {
             /**
              * 生成ServiceImpl
              */
+            serviceImpl(beanModel, tableInfo);
         });
     }
+
 
 
     /**
@@ -108,6 +111,24 @@ public class CodeApplication {
         try {
             FileWriter fileWriter = new FileWriter(file);
             TemplateUtils.process("service.ftl", serviceModel, fileWriter);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 生成ServiceImpl
+     * @param beanModel
+     * @param tableInfo
+     */
+    private static void serviceImpl(BeanModel beanModel, TableInfo tableInfo) {
+        String className = CamelUtils.formatClassName("", tableInfo.getTableName() + "ServiceImpl", "", "_");
+        File file = new File(POJO_FILE_PATH + className + ".java");
+        ServiceModel serviceModel = new ServiceModelImpl();
+        BeanUtils.copyProperties(beanModel, serviceModel);
+        try {
+            FileWriter fileWriter = new FileWriter(file);
+            TemplateUtils.process("serviceImpl.ftl", serviceModel, fileWriter);
         } catch (IOException e) {
             e.printStackTrace();
         }
