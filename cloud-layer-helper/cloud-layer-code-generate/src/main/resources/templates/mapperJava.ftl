@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.sirun.product.mapper.AppOperationLogMapper">
+package ${packageName};
 
-    <resultMap id="BaseResultMap" type="net.sirun.product.bean.dto.AppOperationLog">
-        <id column="id" jdbcType="BIGINT" property="id"/>
-        <result column="vin" jdbcType="VARCHAR" property="vin"/>
-    </resultMap>
+import org.apache.ibatis.annotations.Mapper;
 
-    <sql id="Base_Column_List">
-        id, vin, optional_name, optional_path, username, user_id, ip_address, create_time,
-        delete_flag,http_state,http_result
-    </sql>
+/**
+<#list beanComments as item>
+ * ${item}
+</#list>
+ */
+@Mapper
+public interface ${className}Mapper extends BaseMapper<${className}> {
 
 
-</mapper>
+
+}

@@ -76,9 +76,12 @@ public class CodeApplication {
              * 生成ServiceImpl
              */
             serviceImpl(beanModel, tableInfo);
+            /**
+             * 生成MapperJava
+             */
+            mapperJava(beanModel, tableInfo);
         });
     }
-
 
 
     /**
@@ -129,6 +132,19 @@ public class CodeApplication {
         try {
             FileWriter fileWriter = new FileWriter(file);
             TemplateUtils.process("serviceImpl.ftl", serviceModel, fileWriter);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void mapperJava(BeanModel beanModel, TableInfo tableInfo) {
+        String className = CamelUtils.formatClassName("", tableInfo.getTableName() + "Mapper", "", "_");
+        File file = new File(POJO_FILE_PATH + className + ".java");
+        ServiceModel serviceModel = new ServiceModelImpl();
+        BeanUtils.copyProperties(beanModel, serviceModel);
+        try {
+            FileWriter fileWriter = new FileWriter(file);
+            TemplateUtils.process("mapperJava.ftl", serviceModel, fileWriter);
         } catch (IOException e) {
             e.printStackTrace();
         }
