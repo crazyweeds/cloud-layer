@@ -2,11 +2,12 @@ package io.cloud.layer.code;
 
 import io.cloud.layer.code.core.TableInfo;
 import io.cloud.layer.code.datamodel.BeanModel;
+import io.cloud.layer.code.datamodel.ServiceModel;
 import io.cloud.layer.code.service.impl.TableServiceImpl;
-import io.cloud.layer.code.service.impl.TemplateServiceImpl;
 import io.cloud.layer.code.utils.CamelUtils;
 import io.cloud.layer.code.utils.TemplateUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -32,14 +33,13 @@ public class CodeApplication {
     private final static String POJO_FILE_PATH;
 
     private static final TableServiceImpl tableService = new TableServiceImpl();
-    private static final TemplateServiceImpl TemplateServiceImpl = new TemplateServiceImpl();
     private static final String PACKAGE_NAME;
 
     static {
         DATABASE = "code";
         TABLENAME = "";
         PACKAGE_NAME = "io.cloud.layer.code";
-        POJO_FILE_PATH = "/Users/{lalala}/Documents/develop/code/cloud-layer/cloud-layer-helper/cloud-layer-code-generate/src/main/resources/";
+        POJO_FILE_PATH = "/Users/chenruibo/Documents/develop/code/cloud-layer/cloud-layer-helper/cloud-layer-code-generate/src/main/resources/";
     }
 
     /**
@@ -63,16 +63,52 @@ public class CodeApplication {
         log.info("<---------------------tables----------------------");
         tableInfosByKeyWord.forEach(tableInfo -> {
             log.info("正在查询表信息：{}", tableInfo.toString());
-            BeanModel beanModelByTableName = tableService.getBeanByTableName(tableInfo);
-            beanModelByTableName.setPackageName(PACKAGE_NAME);
-            File file = new File(POJO_FILE_PATH + CamelUtils.formatClassName("", tableInfo.getTableName(), "", "_") + ".java");
-            try {
-                FileWriter fileWriter = new FileWriter(file);
-                TemplateUtils.process("bean.ftl", beanModelByTableName, fileWriter);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            /**
+             * 生成pojo
+             */
+            BeanModel beanModel = pojo(tableInfo);
+            /**
+             * 生成Service
+             */
+            service(beanModel,tableInfo);
         });
+    }
+
+
+    /**
+     * 生成POJO
+     * @param tableInfo
+     */
+    private static BeanModel pojo(TableInfo tableInfo) {
+        BeanModel beanModelByTableName = tableService.getBeanByTableName(tableInfo);
+        beanModelByTableName.setPackageName(PACKAGE_NAME);
+        File file = new File(POJO_FILE_PATH + CamelUtils.formatClassName("", tableInfo.getTableName(), "", "_") + ".java");
+        try {
+            FileWriter fileWriter = new FileWriter(file);
+            TemplateUtils.process("bean.ftl", beanModelByTableName, fileWriter);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return beanModelByTableName;
+    }
+
+    /**
+     * 生成Service
+     *
+     * @param tableInfo
+     */
+    private static void service(BeanModel beanModel, TableInfo tableInfo) {
+        String className = CamelUtils.formatClassName("", tableInfo.getTableName() + "Service", "", "_");
+        File file = new File(POJO_FILE_PATH + className + ".java");
+        ServiceModel serviceModel = new ServiceModel();
+        BeanUtils.copyProperties(beanModel, serviceModel);
+        serviceModel.setClassName(className);
+        try {
+            FileWriter fileWriter = new FileWriter(file);
+            TemplateUtils.process("service.ftl", serviceModel, fileWriter);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

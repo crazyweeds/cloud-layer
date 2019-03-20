@@ -22,7 +22,7 @@ public interface TableService {
     /**
      * 根据表明获取表信息
      *
-     * @param tableName
+     * @param tableInfo
      * @return
      */
     BeanModel getBeanByTableName(TableInfo tableInfo);
