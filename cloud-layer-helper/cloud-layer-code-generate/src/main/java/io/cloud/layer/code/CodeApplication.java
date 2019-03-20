@@ -71,6 +71,9 @@ public class CodeApplication {
              * 生成Service
              */
             service(beanModel,tableInfo);
+            /**
+             * 生成ServiceImpl
+             */
         });
     }
 
@@ -102,7 +105,6 @@ public class CodeApplication {
         File file = new File(POJO_FILE_PATH + className + ".java");
         ServiceModel serviceModel = new ServiceModel();
         BeanUtils.copyProperties(beanModel, serviceModel);
-        serviceModel.setClassName(className);
         try {
             FileWriter fileWriter = new FileWriter(file);
             TemplateUtils.process("service.ftl", serviceModel, fileWriter);

@@ -5,7 +5,7 @@ package ${packageName};
   * ${item}
 </#list>
   */
-public interface ${className} extends BaseService<${className}> {
+public interface ${className}Service extends BaseService<${className}> {
 
 
 
