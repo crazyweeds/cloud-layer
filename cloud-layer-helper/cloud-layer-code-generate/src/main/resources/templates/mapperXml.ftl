@@ -2,23 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.sirun.product.mapper.AppOperationLogMapper">
 
-    <resultMap id="BaseResultMap" type="net.sirun.product.bean.dto.AppOperationLog">
-        <id column="id" jdbcType="BIGINT" property="id"/>
-        <result column="vin" jdbcType="VARCHAR" property="vin"/>
+    <resultMap id="BaseResultMap" type="${packageName}.${className}">
+        <#list fields as item>
+            <#if item.isId>
+                <id column="${item.columnName}" jdbcType="${item.jdbcType}" property="${item.property}"/>
+            </#if>
+            <#if !item.isId>
+                <result column="${item.columnName}" jdbcType="${item.jdbcType}" property="${item.property}"/>
+            </#if>
+        </#list>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,
-        vin,
-        optional_name,
-        optional_path,
-        username,
-        user_id,
-        ip_address,
-        create_time,
-        delete_flag,
-        http_state,
-        http_result
+<#list fields as item>
+    <#if item.property?exists>
+        ${item.property}
+    </#if>
+</#list>
     </sql>
 
 
