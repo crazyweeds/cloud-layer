@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.sirun.product.mapper.AppOperationLogMapper">
+
+    <resultMap id="BaseResultMap" type="io.cloud.layer.code.SysUser">
+                <id column="id" jdbcType="int" property="id"/>
+                <result column="username" jdbcType="varchar" property="username"/>
+                <result column="create_time" jdbcType="datetime" property="createTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        username
+        createTime
+    </sql>
+
+
+</mapper>
