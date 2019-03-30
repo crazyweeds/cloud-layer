@@ -1,9 +1,7 @@
 package io.cloud.layer.code;
 
 import io.cloud.layer.code.core.TableInfo;
-import io.cloud.layer.code.datamodel.BeanModel;
-import io.cloud.layer.code.datamodel.ServiceModel;
-import io.cloud.layer.code.datamodel.ServiceModelImpl;
+import io.cloud.layer.code.datamodel.*;
 import io.cloud.layer.code.service.impl.TableServiceImpl;
 import io.cloud.layer.code.utils.CamelUtils;
 import io.cloud.layer.code.utils.TemplateUtils;
@@ -38,7 +36,7 @@ public class CodeApplication {
 
     static {
         DATABASE = "code";
-        TABLENAME = "";
+        TABLENAME = "%";
         PACKAGE_NAME = "io.cloud.layer.code";
         POJO_FILE_PATH = "/Users/chenruibo/Documents/develop/code/cloud-layer/cloud-layer-helper/cloud-layer-code-generate/src/main/resources/";
     }
@@ -80,8 +78,13 @@ public class CodeApplication {
              * 生成MapperJava
              */
             mapperJava(beanModel, tableInfo);
+            /**
+             * 生成MapperXml
+             */
+            mapperXml(beanModel, tableInfo);
         });
     }
+
 
 
     /**
@@ -137,14 +140,37 @@ public class CodeApplication {
         }
     }
 
+    /**
+     * 生成MapperJava
+     * @param beanModel
+     * @param tableInfo
+     */
     private static void mapperJava(BeanModel beanModel, TableInfo tableInfo) {
         String className = CamelUtils.formatClassName("", tableInfo.getTableName() + "Mapper", "", "_");
         File file = new File(POJO_FILE_PATH + className + ".java");
-        ServiceModel serviceModel = new ServiceModelImpl();
+        ServiceModel serviceModel = new MapperJava();
         BeanUtils.copyProperties(beanModel, serviceModel);
         try {
             FileWriter fileWriter = new FileWriter(file);
             TemplateUtils.process("mapperJava.ftl", serviceModel, fileWriter);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 生成MapperXml
+     * @param beanModel
+     * @param tableInfo
+     */
+    private static void mapperXml(BeanModel beanModel, TableInfo tableInfo) {
+        String className = CamelUtils.formatClassName("", tableInfo.getTableName() + "Mapper", "", "_");
+        File file = new File(POJO_FILE_PATH + className + ".xml");
+        ServiceModel serviceModel = new MapperXml();
+        BeanUtils.copyProperties(beanModel, serviceModel);
+        try {
+            FileWriter fileWriter = new FileWriter(file);
+            TemplateUtils.process("mapperXml.ftl", serviceModel, fileWriter);
         } catch (IOException e) {
             e.printStackTrace();
         }
