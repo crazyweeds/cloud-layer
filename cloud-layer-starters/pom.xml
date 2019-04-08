@@ -15,10 +15,27 @@
     <description>自定义starters</description>
 
     <modules>
-        <module>base-spring-boot-starters</module>
-        <module>config-spring-boot-starters</module>
-        <module>core-spring-boot-starters</module>
+        <module>auth-spring-boot-starters</module>
+        <module>cache-spring-boot-starter</module>
+        <module>ci-spring-boot-starters</module>
+        <module>doc-spring-boot-starter</module>
+        <module>hbase-spring-boot-starter</module>
+        <module>kafka-spring-boot-starter</module>
+        <module>log-spring-boot-starters</module>
+        <module>logger-spring-boot-starter</module>
+        <module>mail-spring-boot-starter</module>
+        <module>mybatis-spring-boot-starters</module>
+        <module>netty-spring-boot-starter</module>
+        <module>security-spring-boot-starter</module>
+        <module>spider-spring-boot-starter</module>
+        <module>swagger-spring-boot-starter</module>
+        <module>tail-spring-boot-starter</module>
+        <module>validata-spring-boot-starter-web</module>
+        <module>web-spring-boot-starter</module>
+        <module>websocket-spring-boot-starter</module>
+        <module>zipkin-server-spring-cloud-starter</module>
     </modules>
+
 
     <dependencies>
         <dependency>
