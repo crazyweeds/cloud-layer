@@ -14,7 +14,7 @@
 
     <modules>
         <module>hbase-starter-core</module>
-        <module>hbase-starter-admin</module>
+        <module>hbase-starter-core-impl</module>
     </modules>
 
     <dependencies>

@@ -1,10 +1,18 @@
-package io.cloud.layer.hbase.core.tags;
+package io.cloud.layer.hbase.impl.tags;
+
+import org.springframework.stereotype.Component;
+
+import java.lang.annotation.*;
 
 /**
  * 基于注解创建Hbase表
  * @author RippleChan
  * @date 2019-04-11 00:58
  */
+@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Component
 public @interface Table {
 
     /**

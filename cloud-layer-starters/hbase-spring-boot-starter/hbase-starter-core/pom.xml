@@ -13,4 +13,15 @@
     <artifactId>hbase-starter-core</artifactId>
     <description>接口定义</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure-processor</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>

@@ -2,6 +2,7 @@ package io.cloud.layer.hbase.core.model;
 
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.apache.hadoop.hbase.client.Admin;
 
 import java.io.Serializable;
 import java.util.List;
@@ -38,7 +39,9 @@ public class HbaseTable implements Serializable {
 
     public static class HbaseTableConfig {
 
-
+        public static void main(String[] args) {
+            Admin admin = null;
+        }
 
     }
 
