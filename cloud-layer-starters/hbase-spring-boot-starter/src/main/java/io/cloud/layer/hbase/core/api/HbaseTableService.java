@@ -1,5 +1,6 @@
 package io.cloud.layer.hbase.core.api;
 
+import io.cloud.layer.hbase.core.model.HbaseTable;
 import org.apache.hadoop.hbase.client.Admin;
 import org.apache.hadoop.hbase.client.TableDescriptor;
 import org.apache.hadoop.hbase.shaded.protobuf.generated.MasterProtos;
@@ -36,6 +37,14 @@ public interface HbaseTableService {
     boolean create(TableDescriptor tableDescriptor);
 
     /**
+     * 创建表
+     *
+     * @param hbaseTable
+     * @return
+     */
+    boolean create(HbaseTable hbaseTable);
+
+    /**
      * 禁用表
      * @param tableName
      * @return
@@ -56,6 +65,13 @@ public interface HbaseTableService {
      * @return
      */
     boolean drop(String tableName);
+
+    /**
+     * 删除表：自动禁用->删除
+     * @param tableName
+     * @return
+     */
+    boolean delete(String tableName);
 
     /**
      * 修改表：包括列族、属性，如果不熟悉，请勿轻易调用

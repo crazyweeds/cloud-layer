@@ -39,7 +39,6 @@ public class HbaseTable implements Serializable {
     public static class HbaseTableConfig {
 
 
-
     }
 
 }

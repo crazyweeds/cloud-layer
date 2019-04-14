@@ -1,7 +1,9 @@
 package io.cloud.layer.hbase.impl.service;
 
 import io.cloud.layer.hbase.core.api.HbaseTableService;
-import io.cloud.layer.hbase.impl.exceptions.HbaseOperationException;
+import io.cloud.layer.hbase.core.model.HbaseTable;
+import io.cloud.layer.hbase.impl.exceptions.HbaseAdminOperationException;
+import io.cloud.layer.hbase.impl.factories.TableFactories;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Admin;
@@ -32,7 +34,7 @@ public class HbaseTableServiceImpl implements HbaseTableService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        throw new HbaseOperationException("获取Admin失败");
+        throw new HbaseAdminOperationException("获取Admin失败");
     }
 
     @Override
@@ -42,18 +44,37 @@ public class HbaseTableServiceImpl implements HbaseTableService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        throw new HbaseOperationException("操作异常");
+        throw new HbaseAdminOperationException("操作异常");
     }
 
     @Override
-    public boolean create(TableDescriptor tableDescriptor) {
+    public boolean create(TableDescriptor tableDescriptor) { ;
         try {
             this.getAdmin().createTable(tableDescriptor);
             return true;
         } catch (IOException e) {
             e.printStackTrace();
         }
-        throw new HbaseOperationException("操作异常");
+        throw new HbaseAdminOperationException("操作异常");
+    }
+
+    @Override
+    public boolean create(HbaseTable hbaseTable) {
+        boolean exist = this.exist(hbaseTable.getTableName());
+        if (exist) {
+            log.warn("表已经存在，无需再次创建");
+            return false;
+        }
+        Admin admin = this.getAdmin();
+        TableDescriptor tableDescriptor = TableFactories.buildTableDescriptor(hbaseTable);
+        try {
+            admin.createTable(tableDescriptor);
+            return true;
+        } catch (IOException e) {
+            log.error("表创建失败");
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override
@@ -64,7 +85,7 @@ public class HbaseTableServiceImpl implements HbaseTableService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        throw new HbaseOperationException("操作异常");
+        throw new HbaseAdminOperationException("操作异常");
     }
 
     @Override
@@ -75,7 +96,7 @@ public class HbaseTableServiceImpl implements HbaseTableService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        throw new HbaseOperationException("操作异常");
+        throw new HbaseAdminOperationException("操作异常");
     }
 
     @Override
@@ -86,7 +107,14 @@ public class HbaseTableServiceImpl implements HbaseTableService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        throw new HbaseOperationException("操作异常");
+        throw new HbaseAdminOperationException("操作异常");
+    }
+
+    @Override
+    public boolean delete(String tableName) {
+        this.disable(tableName);
+        this.drop(tableName);
+        return true;
     }
 
     @Override
@@ -100,7 +128,7 @@ public class HbaseTableServiceImpl implements HbaseTableService {
                 e.printStackTrace();
             }
         }
-        throw new HbaseOperationException("操作异常");
+        throw new HbaseAdminOperationException("操作异常");
     }
 
     @Override
@@ -110,7 +138,7 @@ public class HbaseTableServiceImpl implements HbaseTableService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        throw new HbaseOperationException("操作异常");
+        throw new HbaseAdminOperationException("操作异常");
     }
 
     @Override
@@ -121,7 +149,7 @@ public class HbaseTableServiceImpl implements HbaseTableService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        throw new HbaseOperationException("操作异常");
+        throw new HbaseAdminOperationException("操作异常");
     }
 
     @Override
@@ -132,7 +160,7 @@ public class HbaseTableServiceImpl implements HbaseTableService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        throw new HbaseOperationException("操作异常");
+        throw new HbaseAdminOperationException("操作异常");
     }
 
 
