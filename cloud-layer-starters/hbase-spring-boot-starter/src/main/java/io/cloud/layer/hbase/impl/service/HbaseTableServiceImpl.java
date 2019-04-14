@@ -26,10 +26,19 @@ public class HbaseTableServiceImpl implements HbaseTableService {
 
 
     @Override
+    public Admin getAdmin() {
+        try {
+            return connection.getAdmin();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        throw new HbaseOperationException("获取Admin失败");
+    }
+
+    @Override
     public List<TableDescriptor> list() {
         try {
-            Admin admin = connection.getAdmin();
-            return admin.listTableDescriptors();
+            return this.getAdmin().listTableDescriptors();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -38,10 +47,8 @@ public class HbaseTableServiceImpl implements HbaseTableService {
 
     @Override
     public boolean create(TableDescriptor tableDescriptor) {
-        Admin admin = null;
         try {
-            admin = connection.getAdmin();
-            admin.createTable(tableDescriptor);
+            this.getAdmin().createTable(tableDescriptor);
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -52,8 +59,7 @@ public class HbaseTableServiceImpl implements HbaseTableService {
     @Override
     public boolean disable(String tableName) {
         try {
-            Admin admin = connection.getAdmin();
-            admin.disableTable(TableName.valueOf(tableName));
+            this.getAdmin().disableTable(TableName.valueOf(tableName));
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -64,8 +70,7 @@ public class HbaseTableServiceImpl implements HbaseTableService {
     @Override
     public boolean enable(String tableName) {
         try {
-            Admin admin = connection.getAdmin();
-            admin.enableTable(TableName.valueOf(tableName));
+            this.getAdmin().enableTable(TableName.valueOf(tableName));
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -76,8 +81,7 @@ public class HbaseTableServiceImpl implements HbaseTableService {
     @Override
     public boolean drop(String tableName) {
         try {
-            Admin admin = connection.getAdmin();
-            admin.deleteTable(TableName.valueOf(tableName));
+            this.getAdmin().deleteTable(TableName.valueOf(tableName));
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -90,8 +94,7 @@ public class HbaseTableServiceImpl implements HbaseTableService {
         boolean exist = this.exist(tableDescriptor.getTableName().toString());
         if (exist) {
             try {
-                Admin admin = connection.getAdmin();
-                admin.modifyTable(tableDescriptor);
+                this.getAdmin().modifyTable(tableDescriptor);
                 return true;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -103,8 +106,7 @@ public class HbaseTableServiceImpl implements HbaseTableService {
     @Override
     public boolean exist(String tableName) {
         try {
-            Admin admin = connection.getAdmin();
-            return admin.tableExists(TableName.valueOf(tableName));
+            return this.getAdmin().tableExists(TableName.valueOf(tableName));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -114,8 +116,7 @@ public class HbaseTableServiceImpl implements HbaseTableService {
     @Override
     public TableDescriptor describe(String tableName) {
         try {
-            Admin admin = connection.getAdmin();
-            TableDescriptor descriptor = admin.getDescriptor(TableName.valueOf(tableName));
+            TableDescriptor descriptor = this.getAdmin().getDescriptor(TableName.valueOf(tableName));
             return descriptor;
         } catch (IOException e) {
             e.printStackTrace();
@@ -126,8 +127,7 @@ public class HbaseTableServiceImpl implements HbaseTableService {
     @Override
     public boolean truncateTable(String tableName,boolean preserveSplits) {
         try {
-            Admin admin = connection.getAdmin();
-            admin.truncateTable(TableName.valueOf(tableName), preserveSplits);
+            this.getAdmin().truncateTable(TableName.valueOf(tableName), preserveSplits);
             return true;
         } catch (IOException e) {
             e.printStackTrace();

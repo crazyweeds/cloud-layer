@@ -1,5 +1,6 @@
 package io.cloud.layer.hbase.core.api;
 
+import org.apache.hadoop.hbase.client.Admin;
 import org.apache.hadoop.hbase.client.TableDescriptor;
 import org.apache.hadoop.hbase.shaded.protobuf.generated.MasterProtos;
 
@@ -13,6 +14,12 @@ import java.util.List;
  * @date 2019-04-11 00:29
  */
 public interface HbaseTableService {
+
+    /**
+     * 获取 {@link Admin}
+     * @return
+     */
+    Admin getAdmin();
 
     /**
      * 列出所有表
