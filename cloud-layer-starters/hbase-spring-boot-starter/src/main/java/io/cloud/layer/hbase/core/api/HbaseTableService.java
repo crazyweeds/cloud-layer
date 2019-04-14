@@ -1,12 +1,14 @@
 package io.cloud.layer.hbase.core.api;
 
-import io.cloud.layer.hbase.core.model.HbaseTable;
 import org.apache.hadoop.hbase.client.TableDescriptor;
+import org.apache.hadoop.hbase.shaded.protobuf.generated.MasterProtos;
 
 import java.util.List;
 
 /**
  * 表相关的操作
+ * 对 {@link org.apache.hadoop.hbase.client.Admin} 的封装
+ * 全部操作可以查看： {@link MasterProtos}
  * @author RippleChan
  * @date 2019-04-11 00:29
  */
@@ -18,12 +20,13 @@ public interface HbaseTableService {
      */
     List<TableDescriptor> list();
 
+
     /**
      * 创建表
-     * @param hbaseTable
+     * @param tableDescriptor
      * @return
      */
-    boolean create(HbaseTable hbaseTable);
+    boolean create(TableDescriptor tableDescriptor);
 
     /**
      * 禁用表
@@ -49,10 +52,10 @@ public interface HbaseTableService {
 
     /**
      * 修改表：包括列族、属性，如果不熟悉，请勿轻易调用
-     * @param hbaseTable
+     * @param tableDescriptor
      * @return
      */
-    boolean alter(HbaseTable hbaseTable);
+    boolean alter(TableDescriptor tableDescriptor);
 
     /**
      * 表是否存在
@@ -69,10 +72,12 @@ public interface HbaseTableService {
     TableDescriptor describe(String tableName);
 
     /**
-     * 查看表中的数据规模
+     * 清空表数据
      * @param tableName
      * @return
      */
-    Long count(String tableName);
+    boolean truncateTable(String tableName,boolean preserveSplits);
+
+
 
 }

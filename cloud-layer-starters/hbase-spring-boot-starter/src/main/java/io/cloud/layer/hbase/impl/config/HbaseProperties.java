@@ -17,6 +17,7 @@ import java.util.*;
 /**
  * https://github.com/apache/hbase/blob/master/hbase-server/src/test/resources/hbase-site.xml
  * http://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-common/core-default.xml
+ * /org/apache/hbase/hbase-common/2.0.1/hbase-common-2.0.1.jar!/hbase-default.xml
  * @author RippleChan
  * @date 2019-04-11 21:54
  */

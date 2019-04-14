@@ -9,14 +9,13 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Objects;
 
 /**
- * 用于创建表
+ * 基于注解 {@link Table} 自动创建表
  * @author RippleChan
  * @date 2019-04-14 03:06
  */
 @Configuration
 @EnableConfigurationProperties(TableProperties.class)
 public class TableConfig implements BeanPostProcessor {
-
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
