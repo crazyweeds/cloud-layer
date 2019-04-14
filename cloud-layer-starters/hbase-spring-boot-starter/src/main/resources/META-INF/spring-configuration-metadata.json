@@ -1,0 +1,56 @@
+{
+  "groups": [
+    {
+      "name": "hbase.config.file",
+      "type": "io.cloud.layer.hbase.impl.config.HbaseProperties$FileConfig",
+      "sourceType": "io.cloud.layer.hbase.impl.config.HbaseProperties$FileConfig"
+    },
+    {
+      "name": "hbase.config.property",
+      "type": "io.cloud.layer.hbase.impl.config.HbaseProperties$PropertiesConfig",
+      "sourceType": "io.cloud.layer.hbase.impl.config.HbaseProperties$PropertiesConfig"
+    },
+    {
+      "name": "hbase.config.table",
+      "type": "io.cloud.layer.hbase.impl.config.table.TableProperties",
+      "sourceType": "io.cloud.layer.hbase.impl.config.table.TableProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "hbase.config.file.file-paths",
+      "type": "java.util.List<java.net.URL>",
+      "sourceType": "io.cloud.layer.hbase.impl.config.HbaseProperties$FileConfig"
+    },
+    {
+      "name": "hbase.config.file.files",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "description": "通常是 core-site.xml 和 hbase-sime.xml 文件路径,如果文件放在classPath目录下，请以：classpath: 作为起始值",
+      "sourceType": "io.cloud.layer.hbase.impl.config.HbaseProperties$FileConfig"
+    },
+    {
+      "name": "hbase.config.property.configuration",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "io.cloud.layer.hbase.impl.config.HbaseProperties$PropertiesConfig"
+    },
+    {
+      "name": "hbase.config.property.property-key",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "description": "配置属性的key",
+      "sourceType": "io.cloud.layer.hbase.impl.config.HbaseProperties$PropertiesConfig"
+    },
+    {
+      "name": "hbase.config.property.property-value",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "description": "配置属性的value",
+      "sourceType": "io.cloud.layer.hbase.impl.config.HbaseProperties$PropertiesConfig"
+    },
+    {
+      "name": "hbase.config.table.strategy",
+      "type": "io.cloud.layer.hbase.impl.config.table.TableProperties$Strategy",
+      "description": "创建表的策略，模式列表：{@link Strategy}",
+      "sourceType": "io.cloud.layer.hbase.impl.config.table.TableProperties"
+    }
+  ],
+  "hints": []
+}

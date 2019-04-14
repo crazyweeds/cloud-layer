@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  io.cloud.layer.hbase.impl.config.HbaseProperties,\
+  io.cloud.layer.hbase.impl.config.ConnectionConfig,\
+  io.cloud.layer.hbase.impl.config.table.TableConfig

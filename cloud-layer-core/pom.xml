@@ -17,6 +17,7 @@
     <modules>
         <module>cloud-layer-utils</module>
         <module>cloud-layer-bean</module>
+        <module>cloud-layer-spring</module>
     </modules>
 
     <dependencies>
