@@ -24,12 +24,4 @@
         <module>hbase-spring-boot-starter-test</module>
     </modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>io.cloud.layer</groupId>
-            <artifactId>cloud-layer-bean</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
-
 </project>
