@@ -32,6 +32,7 @@
         <module>cloud-layer-swagger-dependencies</module>
         <module>cloud-layer-zuul-dependencies</module>
         <module>cloud-layer-jwt-dependencies</module>
+        <module>cloud-layer-starter-dependencies</module>
     </modules>
 
 
