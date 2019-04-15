@@ -20,17 +20,19 @@
         <lombok.version>1.18.6</lombok.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
         <netty-all.version>4.1.33.Final</netty-all.version>
-        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
-        <springfox-swagger-ui.version>${springfox-swagger2.version}</springfox-swagger-ui.version>
         <jjwt.version>0.9.0</jjwt.version>
-        <spring-cloud-security.version>2.1.1.RELEASE</spring-cloud-security.version>
-        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
-        <swagger-models.version>1.5.22</swagger-models.version>
-        <spring-cloud-starter-netflix-zuul.version>2.1.0.RELEASE</spring-cloud-starter-netflix-zuul.version>
         <jaxb-runtime.version>2.3.1</jaxb-runtime.version>
         <commons-io.version>2.6</commons-io.version>
         <spring-cloud-starter-zipkin.version>2.1.1.RELEASE</spring-cloud-starter-zipkin.version>
     </properties>
+
+    <modules>
+        <module>cloud-layer-hbase-dependencies</module>
+        <module>cloud-layer-webmvc-dependencies</module>
+        <module>cloud-layer-swagger-dependencies</module>
+        <module>cloud-layer-zuul-dependencies</module>
+        <module>cloud-layer-jwt-dependencies</module>
+    </modules>
 
 
     <dependencyManagement>
@@ -50,95 +52,15 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-security-dependencies</artifactId>
-                <version>${spring-cloud-security.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
             <!--important end-->
             <!--spring start-->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring-boot.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-tomcat</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-undertow</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-security</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-mail</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
-                <version>${spring-cloud-starter-netflix-zuul.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-zipkin</artifactId>
                 <version>${spring-cloud-starter-zipkin.version}</version>
             </dependency>
             <!--spring end-->
-            <!--swagger-start-->
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>${springfox-swagger2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-models</artifactId>
-                <version>${swagger-models.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger-ui</artifactId>
-                <version>${springfox-swagger2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-spring-web</artifactId>
-                <version>${springfox-swagger2.version}</version>
-            </dependency>
-            <!--swagger-end-->
             <!--other-start-->
-            <dependency>
-                <groupId>io.jsonwebtoken</groupId>
-                <artifactId>jjwt</artifactId>
-                <version>${jjwt.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>${springfox-swagger2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger-ui</artifactId>
-                <version>${springfox-swagger-ui.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty-all</artifactId>
-                <version>${netty-all.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
@@ -163,6 +85,7 @@
             <!--other-end-->
         </dependencies>
     </dependencyManagement>
+
 
     <dependencies>
         <dependency>
