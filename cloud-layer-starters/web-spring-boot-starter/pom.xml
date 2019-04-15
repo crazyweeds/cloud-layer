@@ -16,12 +16,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-undertow</artifactId>
+            <groupId>io.cloud.layer</groupId>
+            <artifactId>cloud-layer-webmvc-dependencies</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
