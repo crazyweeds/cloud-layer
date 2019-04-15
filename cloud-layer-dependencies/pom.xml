@@ -53,13 +53,6 @@
                 <scope>import</scope>
             </dependency>
             <!--important end-->
-            <!--spring start-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-zipkin</artifactId>
-                <version>${spring-cloud-starter-zipkin.version}</version>
-            </dependency>
-            <!--spring end-->
             <!--other-start-->
             <dependency>
                 <groupId>org.projectlombok</groupId>
