@@ -15,12 +15,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure-processor</artifactId>
+            <groupId>io.cloud.layer</groupId>
+            <artifactId>cloud-layer-starter-dependencies</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.cloud.layer</groupId>
