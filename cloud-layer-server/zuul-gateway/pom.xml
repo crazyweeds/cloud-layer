@@ -14,8 +14,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+            <groupId>io.cloud.layer</groupId>
+            <artifactId>cloud-layer-zuul-dependencies</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.cloud.layer</groupId>
@@ -27,17 +28,16 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <!--为了实现动态Filter-->
-        <!--todo：处理版本号-->
-        <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
-            <version>1.7.6</version>
-        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-oauth2</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+                    <groupId>org.springframework.security.oauth.boot</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
-        <!--todo：处理版本号-->
         <dependency>
             <groupId>org.springframework.security.oauth.boot</groupId>
             <artifactId>spring-security-oauth2-autoconfigure</artifactId>
