@@ -22,7 +22,7 @@ public class HbaseDataServiceImpl implements HbaseDataService {
 
 
     @Override
-    public void put(String tableName, String familyName, String rowKey, String columnName, Long version, String value) {
+    public void put(String tableName, String familyName, String rowKey, String columnName, Long version, byte[] value) {
         try {
             Table table = connection.getTable(TableName.valueOf(tableName));
             Put put = this.getPut(familyName, rowKey, columnName, value, version);
@@ -33,11 +33,11 @@ public class HbaseDataServiceImpl implements HbaseDataService {
     }
 
     @Override
-    public boolean checkAndPut(String tableName, String familyName, String rowKey, String columnName, Long version, String value) {
+    public boolean checkAndPut(String tableName, String familyName, String rowKey, String columnName, Long version, byte[] value) {
         try {
             Table table = connection.getTable(TableName.valueOf(tableName));
             Table.CheckAndMutateBuilder checkAndMutateBuilder = table.checkAndMutate(Bytes.toBytes(rowKey), Bytes.toBytes(familyName));
-            boolean b = checkAndMutateBuilder.ifEquals(Bytes.toBytes(value)).thenPut(this.getPut(familyName, rowKey, columnName, value, version));
+            boolean b = checkAndMutateBuilder.ifEquals(value).thenPut(this.getPut(familyName, rowKey, columnName, value, version));
             return b;
         } catch (IOException e) {
             e.printStackTrace();
@@ -74,12 +74,12 @@ public class HbaseDataServiceImpl implements HbaseDataService {
     }
 
 
-    private Put getPut(String familyName, String rowKey, String columnName, String value, Long version) {
+    private Put getPut(String familyName, String rowKey, String columnName, byte[] value, Long version) {
         Put put = new Put(Bytes.toBytes(rowKey));
         if (Objects.isNull(version)) {
-            put.addColumn(Bytes.toBytes(familyName), Bytes.toBytes(columnName), Bytes.toBytes(value));
+            put.addColumn(Bytes.toBytes(familyName), Bytes.toBytes(columnName), value);
         } else {
-            put.addColumn(Bytes.toBytes(familyName), Bytes.toBytes(columnName), version, Bytes.toBytes(value));
+            put.addColumn(Bytes.toBytes(familyName), Bytes.toBytes(columnName), version, value);
         }
         return put;
     }

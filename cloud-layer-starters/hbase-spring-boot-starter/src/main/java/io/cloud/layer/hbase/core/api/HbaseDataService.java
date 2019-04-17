@@ -10,48 +10,47 @@ import org.apache.hadoop.hbase.client.Result;
 public interface HbaseDataService {
 
     /**
-     * 新增带version
-     *
-     * @param tableName
-     * @param familyName
-     * @param rowKey
-     * @param columnName
-     * @param value
-     * @param version
+     * 新增
+     * @param tableName 表名
+     * @param familyName 列族名称
+     * @param rowKey rowKey
+     * @param columnName 列名
+     * @param value 值
+     * @param version 版本，可以为null
      */
-    void put(String tableName, String familyName, String rowKey, String columnName, Long version, String value);
+    void put(String tableName, String familyName, String rowKey, String columnName, Long version, byte[] value);
 
 
     /**
      * 更新前进行检查
      *
-     * @param tableName
-     * @param familyName
-     * @param rowKey
-     * @param columnName
-     * @param value
-     * @param version
+     * @param tableName 表名
+     * @param familyName 列族名称
+     * @param rowKey rowkey
+     * @param columnName 列名
+     * @param value 值
+     * @param version 版本，可以是null
      * @return
      */
-    boolean checkAndPut(String tableName, String familyName, String rowKey, String columnName, Long version, String value);
+    boolean checkAndPut(String tableName, String familyName, String rowKey, String columnName, Long version, byte[] value);
 
 
     /**
      * 递增/递减操作
-     * @param tableName
-     * @param familyName
-     * @param rowKey
-     * @param columnName
-     * @param incrementValue
+     * @param tableName 表名
+     * @param familyName 列族名称
+     * @param rowKey rowKey
+     * @param columnName 列名
+     * @param incrementValue 自增/自减的值
      * @return
      */
     boolean increment(String tableName, String familyName, String rowKey, String columnName, Long incrementValue);
 
     /**
-     * 获取
-     * @param tableName
-     * @param familyName
-     * @param rowKey
+     * 根据rowKey获取值
+     * @param tableName 表名
+     * @param familyName 列族名
+     * @param rowKey rowKey
      * @return
      */
     Result get(String tableName, String familyName, String rowKey,String columnName);

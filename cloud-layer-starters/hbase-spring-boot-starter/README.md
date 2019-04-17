@@ -1,5 +1,6 @@
 # hbase-spring-boot-starter
-## tode
+## todo
 
     压缩方式
     最大版本
+    批量操作
