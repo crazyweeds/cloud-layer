@@ -1,6 +1,12 @@
 package io.cloud.layer.hbase.impl.service;
 
 import io.cloud.layer.hbase.core.api.HbaseServerService;
+import io.cloud.layer.hbase.core.enums.WalStatus;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.Connection;
+import org.apache.hadoop.hbase.client.Mutation;
+import org.apache.hadoop.hbase.client.Table;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,6 +16,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class HbaseServerServiceImpl implements HbaseServerService {
 
+    @Autowired
+    private Connection connection;
 
+    @Override
+    public void wal(WalStatus walStatus) {
+        Table test = connection.getTable(TableName.valueOf("test"));
+    }
 
 }

@@ -23,7 +23,7 @@ import java.util.List;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = HbaseApplication.class)
-public class HbaseHbaseTableServiceImplTest {
+public class HbaseHbaseTableServiceTest {
 
     @Autowired
     private HbaseTableService hbaseTableService;

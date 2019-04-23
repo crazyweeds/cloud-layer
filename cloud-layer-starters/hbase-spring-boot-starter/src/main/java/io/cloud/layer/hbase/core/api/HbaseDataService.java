@@ -1,6 +1,7 @@
 package io.cloud.layer.hbase.core.api;
 
 import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.client.ResultScanner;
 
 /**
  * 对数据的操作
@@ -55,5 +56,7 @@ public interface HbaseDataService {
      */
     Result get(String tableName, String familyName, String rowKey,String columnName);
 
+
+    ResultScanner scan(String tableName);
 
 }

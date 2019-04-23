@@ -27,7 +27,6 @@
     </properties>
 
     <modules>
-        <module>cloud-layer-hbase-dependencies</module>
         <module>cloud-layer-webmvc-dependencies</module>
         <module>cloud-layer-swagger-dependencies</module>
         <module>cloud-layer-zuul-dependencies</module>

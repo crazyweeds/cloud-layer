@@ -1,5 +1,7 @@
 package io.cloud.layer.hbase.core.api;
 
+import io.cloud.layer.hbase.core.enums.WalStatus;
+
 /**
  * Hbase server相关的操作
  * @author RippleChan
@@ -7,6 +9,6 @@ package io.cloud.layer.hbase.core.api;
  */
 public interface HbaseServerService {
 
-
+    void wal(WalStatus walStatus);
 
 }

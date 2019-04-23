@@ -73,6 +73,19 @@ public class HbaseDataServiceImpl implements HbaseDataService {
         return null;
     }
 
+    @Override
+    public ResultScanner scan(String tableName) {
+        Table table = null;
+        try {
+            table = connection.getTable(TableName.valueOf(tableName));
+            ResultScanner scanner = table.getScanner(new Scan());
+            return scanner;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     private Put getPut(String familyName, String rowKey, String columnName, byte[] value, Long version) {
         Put put = new Put(Bytes.toBytes(rowKey));
