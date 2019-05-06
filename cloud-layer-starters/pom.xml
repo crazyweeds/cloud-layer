@@ -34,6 +34,7 @@
         <module>web-spring-boot-starter</module>
         <module>websocket-spring-boot-starter</module>
         <module>zipkin-server-spring-cloud-starter</module>
+        <module>mqtt-spring-boot-starter</module>
     </modules>
 
 
