@@ -19,6 +19,7 @@
         <module>eureka-server</module>
         <module>eureka-client</module>
         <module>zipkin-server</module>
+        <module>gateway-sever</module>
     </modules>
 
 

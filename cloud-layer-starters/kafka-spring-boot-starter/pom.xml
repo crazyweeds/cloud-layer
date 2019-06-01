@@ -13,5 +13,13 @@
     <artifactId>kafka-spring-boot-starter</artifactId>
     <description>kafka相关</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-stream-kafka</artifactId>
+            <version>2.2.0.RELEASE</version>
+        </dependency>
+    </dependencies>
+
 
 </project>

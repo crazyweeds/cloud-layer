@@ -35,6 +35,7 @@
         <module>websocket-spring-boot-starter</module>
         <module>zipkin-server-spring-cloud-starter</module>
         <module>mqtt-spring-boot-starter</module>
+        <module>trace-log-spring-boot-starter</module>
     </modules>
 
 

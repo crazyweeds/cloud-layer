@@ -14,11 +14,37 @@
     <artifactId>swagger-spring-boot-starter</artifactId>
     <description>swagger快速配置</description>
 
+    <properties>
+        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+        <swagger-models.version>1.5.22</swagger-models.version>
+        <springfox-swagger-ui.version>${springfox-swagger2.version}</springfox-swagger-ui.version>
+    </properties>
+
     <dependencies>
         <dependency>
-            <groupId>io.cloud.layer</groupId>
-            <artifactId>cloud-layer-swagger-dependencies</artifactId>
-            <version>${project.version}</version>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox-swagger-ui.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox-swagger2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-models</artifactId>
+            <version>${swagger-models.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox-swagger2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-spring-web</artifactId>
+            <version>${springfox-swagger2.version}</version>
         </dependency>
         <dependency>
             <groupId>io.cloud.layer</groupId>

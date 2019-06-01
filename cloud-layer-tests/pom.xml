@@ -23,6 +23,7 @@
         <module>cloud-layer-swagger-test</module>
         <module>hbase-spring-boot-starter-test</module>
         <module>cloud-layer-agent-test</module>
+        <module>cloud-layer-other-test</module>
     </modules>
 
 </project>
